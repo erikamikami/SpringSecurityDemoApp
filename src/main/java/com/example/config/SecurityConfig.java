@@ -11,12 +11,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		// /loginは認証不要であること,それ以外は認証を求めること
 		http.authorizeRequests()
-			.mvcMatchers("/login").permitAll()
+			.mvcMatchers("/login/**").permitAll()
 			.anyRequest().authenticated()
 		
 		// 認証方式はフォーム認証であること
 			.and()
 			.formLogin()
+			.usernameParameter("name")
+			.passwordParameter("password")
 			.loginPage("/login");
 	}
 
