@@ -4,6 +4,6 @@
 SpringSecurityを取得するためのデモアプリケーションです。
 
 ### 実装内容（予定も含む）
-・独自のログイン/ログアウト画面を用いて認証を行う
-・ UserDetails と UserDetailsService の理解
-・認可機能の実装
+ - 独自のログイン/ログアウト画面を用いて認証を行う
+ - UserDetails と UserDetailsService の理解
+ - 認可機能の実装
