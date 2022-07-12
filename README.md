@@ -1,4 +1,4 @@
-# SpringSecurityDemoApp
+# SpringSecurityDemoApp :lock:
 ## SpringSecurity 習得 デモアプリケーション
 ### 概要
 SpringSecurityを取得するためのデモアプリケーションです。
