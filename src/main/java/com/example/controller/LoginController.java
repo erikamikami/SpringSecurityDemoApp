@@ -12,8 +12,5 @@ public class LoginController {
 		return "login";
 	}
 	
-	@RequestMapping("/require")
-	public String login() {
-		return "top";
-	}
+
 }

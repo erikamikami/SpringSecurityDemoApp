@@ -7,14 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/logout")
 public class Logout {
 	
-	@RequestMapping("")
+	@RequestMapping("/form")
 	public String toLogout() {
 		return "logout";
 	}
 
-	@RequestMapping("/require")
-	public String logout() {
-		return "/top";
-	}
-	
 }

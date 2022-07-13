@@ -13,10 +13,10 @@
 <body>
   <div class="container">
     <h1 class="mt-3">ログインフォーム</h1>
-    <div class="alert alert-danger" role="alert" th:if=${param.error}>
+    <div th:if=${param.error}>
       <p>ユーザー名もしくはパスワードが異なります。</p>
     </div>
-    <form class="form-label" th:action="@{/login/require}" method="post">
+    <form class="form-label" th:action="@{/login}" method="post">
       <div class="mt-3">
         <label for="name">ユーザー名：</label>
         <input class="form-control" type="text" name="name"><br>
