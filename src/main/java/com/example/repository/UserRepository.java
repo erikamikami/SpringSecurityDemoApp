@@ -1,28 +1,25 @@
 package com.example.repository;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-import org.springframework.stereotype.Repository;
+import java.util.List;
+import java.util.Optional;
 
-@Repository
-public class UserRepository {
-	
-	@Autowired
-	private NamedParameterJdbcTemplate template;
-	
-	private static final RowMapper<User> USER_ROW_MAPPER = new BeanPropertyRowMapper<>(User.class);
-	
-	
-	public User findByNameAndPassword(String name, String password) {
-		String sql = "SELECT id, name, password, attribute_id FROM users WHERE id = :id AND password = :password";
-		SqlParameterSource param = new MapSqlParameterSource().addValue("name", name).addValue("password", password);
-		User user = template.queryForObject(sql, param, USER_ROW_MAPPER);
-		return user;
-	}
-	
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
+import com.example.domain.User;
+
+@Mapper // mybatisのマッパーであることを示す
+public interface UserRepository {
+
+	@Select("select id, name, password, attribute_id from users where name = #{name}")
+	Optional<User> findByName(String name);
+
+	@Select("select id, name, password, attribute_id from users")
+	List<User> findAll();
+
+	@Insert("insert into users (name, password, attribute_id) values (#{name}, #{password}, #{attributeId})")
+	void insert(@Param("name") String name, @Param("password") String password,
+			@Param("attributeId") int attributeId);
 }

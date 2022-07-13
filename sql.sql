@@ -7,6 +7,10 @@ CREATE TABLE users (
     ,attribute_id VARCHAR(10) NOT NULL
 );
 
+INSERT INTO users (name, password, attribute_id)Values('佐藤', 'password1', 1);
+INSERT INTO users (name, password, attribute_id)Values('山田', 'password1', 2);
+INSERT INTO users (name, password, attribute_id)Values('高橋', 'password1', 3);
+
 DROP TABLE IF EXISTS attributes;
 
 CREATE TABLE attributes (

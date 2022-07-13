@@ -8,6 +8,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
+import com.example.repository.UserRepository;
+
 import lombok.RequiredArgsConstructor;
 
 @EnableWebSecurity // WebSecurity関連の設定であること示すアノテーション
